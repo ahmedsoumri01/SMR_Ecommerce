@@ -1,0 +1,14 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "SMR-Ecommerce",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "author": "ahmedsoumri",
+  "license": "ISC",
+  "dependencies": {
+    "nodemon": "^2.0.21"
+  }
+}
