@@ -5,18 +5,19 @@ const Product = require("../models/ProductSchema");
 // Fetch all products or products matching the search query
 router.get("/products", async (req, res) => {
   const { productName, category } = req.query;
-  console.log("Product", productName, category);
+  /* console.log("Product", productName, category); */
   let productData;
-  if (category) {
-    productData = await Product.find({
-      category: category,
-    }).select("-__v");
-  } /* else if (productName && category) {
+
+  if (productName && category) {
     productData = await Product.find({
       productName: new RegExp(productName, "i"),
       category: category,
     }).select("-__v");
-  } */
+  } else {
+    productData = await Product.find({
+      category: category,
+    }).select("-__v");
+  }
 
   res.status(200).json({ data: productData });
 });
@@ -31,7 +32,7 @@ router.get("/products", async (req, res) => {
 }); */
 
 // Add a new product
-/* router.post("/products", async (req, res) => {
+router.post("/products", async (req, res) => {
   const {
     productName,
     productPrice,
@@ -76,7 +77,7 @@ router.get("/products", async (req, res) => {
       console.error(error);
     }
   }
-}); */
+});
 
 // Update individual product
 /* router.patch("/products/:id", async (req, res) => {

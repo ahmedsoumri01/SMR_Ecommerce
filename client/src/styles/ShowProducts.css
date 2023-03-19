@@ -9,18 +9,64 @@
 
 }
 .searchBar input[type="text"]{
- 
     height: 40px;
-    padding: 0 10px;
-    border: none;
     border-radius: 5px;
-    outline: none;
-    font-size: 16px;
-    box-shadow: 1px 0px 16px 0px rgba(44, 44, 44, 0.249);
+    border: solid 1px #6a6a6a66;
+    min-width: 300px;
+    padding: 10px;
+}
+.searchBar button {
+    width: 100px;
+    border: none;
+    height: 40px;
+    margin: 0 5px;
+    border-radius: 10px;
+    background: #8383ed;
+    color: white;
 }
 
-.searchBar button[type="submit"]{
-    width: 100px;
+
+/*products and filter sections */
+.pageslinks{
+    display: flex;
+    align-items: center;
+    
+    margin: 10px 20px;
+    padding: 10px;
+    box-shadow: 1px 0px 16px 0px rgba(44, 44, 44, 0.123);
+
+}
+.pageslinks a{
+    margin: 0 5px;
+    font-size: 20px;
+}
+.pageslinks h4{margin:0 5px}
+.productsAndFilter{
+    display: grid;
+    grid-template-columns: 20% 80%;
+    margin: 30px 10px;
+}
+
+.filter{
+    position: fixed;
+    max-height: 500px;
+    max-width: 245px;
+    box-shadow: 1px 0px 16px 0px rgba(44, 44, 44, 0.249);
+    border-radius: 10px;
+    padding: 10px;
+}
+.filter input[type="number"]{
+    width: 100%;
+    height: 40px;
+    padding: 0 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    margin: 5px 0;
+}
+.filterPrix button{
+    display: block;
+    width: 100%;
     height: 40px;
     border: none;
     border-radius: 5px;
@@ -28,18 +74,10 @@
     font-size: 16px;
     background-color: rgb(131, 131, 237);
     color: white;
-    margin-left: 10px;
+    margin: 10px 0;
     cursor: pointer;
-    box-shadow: 1px 0px 16px 0px rgba(44, 44, 44, 0.249);
-}
-.productsAndFilter{
-    display: grid;
-    grid-template-columns: 20% 80%;
-}
+    font-weight: bold;
 
-.filter{
-    background-color: rgb(131, 131, 237);
-    text-align: center;
 }
 .productsSection{
 margin: 0 10px;
@@ -74,6 +112,6 @@ margin: 0 10px;
         margin: 10px;
     }
     .product-price span{
-        font-size: 20px;
+        font-size: 15px;
         font-weight: bold;
     }

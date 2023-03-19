@@ -2,16 +2,8 @@ import React from "react";
 
 export default function CopyRight() {
   return (
-    <div
-      style={{
-        width: "100%",
-        backgroundColor: "black",
-        color: "white",
-        textAlign: "center",
-        padding: "20px",
-      }}
-    >
-      CopyRight
+    <div className="copyRight">
+      CopyRight <i class="far fa-copyright"></i> SMR-STORE
     </div>
   );
 }

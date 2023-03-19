@@ -71,31 +71,6 @@ export default function Header() {
                   </li>
                 </ul>
               </li>
-              <li className="nav-item dropdown">
-                <a
-                  class="nav-link dropdown-toggle"
-                  href="#"
-                  id="navbarDropdown"
-                  role="button"
-                  data-mdb-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  testmode
-                </a>
-
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li>
-                    <Link class="dropdown-item" to={"/login"}>
-                      login
-                    </Link>
-                  </li>
-                  <li>
-                    <Link class="dropdown-item" to={"/register"}>
-                      register
-                    </Link>
-                  </li>
-                </ul>
-              </li>
             </ul>
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
               <li class="nav-item dropdown">
@@ -119,6 +94,21 @@ export default function Header() {
                   class="dropdown-menu"
                   aria-labelledby="navbarDropdownMenuLink"
                 >
+                  <li>
+                    <Link class="dropdown-item" to={"/login"}>
+                      login
+                    </Link>
+                  </li>
+                  <li>
+                    <Link class="dropdown-item" to={"/register"}>
+                      register
+                    </Link>
+                  </li>
+                  <li>
+                    <Link class="dropdown-item" to={"/admin"}>
+                      Admin Panel
+                    </Link>
+                  </li>
                   <li>
                     <a class="dropdown-item" href="#">
                       Settings
