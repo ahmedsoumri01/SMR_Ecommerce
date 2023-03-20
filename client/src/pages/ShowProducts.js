@@ -26,6 +26,8 @@ export default function ShowProducts() {
         );
       });
       setproductsData(filteredProducts);
+      setMaxPrix("");
+      setMinPrix("");
     }
   };
   const searchFunc = (e) => {
@@ -79,6 +81,7 @@ export default function ShowProducts() {
                 min="0"
                 max="7000"
                 onChange={(e) => setMinPrix(e.target.value)}
+                value={minPrix}
               />
               <input
                 type="number"
@@ -86,6 +89,7 @@ export default function ShowProducts() {
                 min="0"
                 max="7000"
                 onChange={(e) => setMaxPrix(e.target.value)}
+                value={maxPrix}
               />
               <button type="button" onClick={filterFunc}>
                 Filter
@@ -105,6 +109,11 @@ export default function ShowProducts() {
             <i class="fas fa-angle-double-right"></i>
             <h4> {category}</h4>
           </div>
+          {productsData.length === 0 && (
+            <div style={{ height: "50vh" }}>
+              <h1 style={{ textAlign: "center" }}>No Products yet</h1>
+            </div>
+          )}
           <div className="productGrid">
             {productsData.map((product) => (
               <ProductGrid
