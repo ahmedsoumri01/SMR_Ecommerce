@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 function Register() {
+  const [EureurMsg, SetEureurMsg] = useState("");
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -11,7 +12,12 @@ function Register() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // handle form submission
+    if (formData.password != formData.confirmPassword) {
+      SetEureurMsg("Password and Confirm Password must be the same");
+      return;
+    } else {
+      console.log(formData);
+    }
   };
 
   const handleInputChange = (e) => {
@@ -22,7 +28,7 @@ function Register() {
   };
 
   return (
-    <div className="container">
+    <div className="container m-5">
       <div className="row justify-content-center mt-5">
         <div className="col-md-6">
           <div className="card">
@@ -36,10 +42,11 @@ function Register() {
                     className="form-control"
                     name="name"
                     value={formData.name}
+                    required="true"
                     onChange={handleInputChange}
                   />
                 </div>
-                <div className="form-group">
+                <div className="form-group mt-3">
                   <label>Email</label>
                   <input
                     type="email"
@@ -47,9 +54,10 @@ function Register() {
                     name="email"
                     value={formData.email}
                     onChange={handleInputChange}
+                    required="true"
                   />
                 </div>
-                <div className="form-group">
+                <div className="form-group mt-3">
                   <label>Password</label>
                   <input
                     type="password"
@@ -57,19 +65,27 @@ function Register() {
                     name="password"
                     value={formData.password}
                     onChange={handleInputChange}
+                    required="true"
                   />
                 </div>
-                <div className="form-group">
+                <div className="form-group mt-3">
                   <label>Confirm Password</label>
                   <input
                     type="password"
                     className="form-control"
                     name="confirmPassword"
                     value={formData.confirmPassword}
+                    required="true"
                     onChange={handleInputChange}
                   />
                 </div>
-                <button type="submit" className="btn btn-primary btn-block">
+                <div className="form-group mt-3 text-danger">
+                  <label>{EureurMsg}</label>
+                </div>
+                <button
+                  type="submit"
+                  className="btn btn-primary btn-block mt-3"
+                >
                   Register
                 </button>
               </form>

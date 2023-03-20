@@ -22,6 +22,12 @@ export default function ManageProducts() {
   return (
     <div className="ManageProducts">
       <h3>Manage Products</h3>
+
+      <div>
+        <input type="text" placeholder="Search by name" />
+        <button>Search</button>
+      </div>
+
       <table class="table container">
         <thead>
           <tr>

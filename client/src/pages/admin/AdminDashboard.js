@@ -5,6 +5,28 @@ import AddProduct from "./AddProduct";
 import ManageProducts from "./ManageProducts";
 export default function AdminDashboard() {
   const [showMenu, setshowMenu] = useState("");
+  const [interfaceSelected, setInterfaceSelected] = useState(0);
+  const section = (e) => {
+    if (e.target.id === "AdminDashboard") {
+      setInterfaceSelected(0);
+    }
+    if (e.target.id === "AddNewProduct") {
+      setInterfaceSelected(1);
+    }
+    if (e.target.id === "ManageProducts") {
+      setInterfaceSelected(2);
+    }
+  };
+  const showSection = () => {
+    switch (interfaceSelected) {
+      case 1:
+        return <AddProduct />;
+      case 2:
+        return <ManageProducts />;
+      default:
+        return <h1>hello im an admin </h1>;
+    }
+  };
 
   const showMenuHandler = () => {
     setshowMenu(!showMenu);
@@ -24,28 +46,20 @@ export default function AdminDashboard() {
           )}
         </button>
         <ul>
-          <li>
+          <li id="AdminDashboard" onClick={section}>
+            <i class="fas fa-tachometer-alt"></i>
+            {showMenu ? " admin dashboard" : ""}
+          </li>
+          <li id="AddNewProduct" onClick={section}>
             <i className="far fa-plus-square"></i>
             {showMenu ? " Add New Product" : ""}
           </li>
-          <li>
+          <li id="ManageProducts" onClick={section}>
             <i className="fas fa-edit"></i> {showMenu ? "manage products" : ""}
           </li>
-          {/*  <li>
-            <i className="fas fa-shopping-cart"></i>{" "}
-            {showMenu ? "manage orders" : ""}
-          </li>
-          <li>
-            <i className="fas fa-user-alt"></i> {showMenu ? "manage users" : ""}
-          </li> */}
         </ul>
       </div>
-      <div className="adminSectionDetails">
-        <h1>Admin Dashboard</h1>
-        {/*  <AddProduct /> */}
-
-        <ManageProducts />
-      </div>
+      <div className="adminSectionDetails">{showSection()}</div>
     </div>
   );
 }

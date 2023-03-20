@@ -6,22 +6,22 @@ export default function CategoriesNav() {
       <ul>
         <li>
           <Link to={"/"}>
-            <i class="fas fa-home"></i>home
+            <i className="fas fa-home"></i>home
           </Link>
         </li>
         <li>
           <Link to={"/products?category=smartphone"}>
-            <i class="fas fa-mobile-alt"></i>smartphone
+            <i className="fas fa-mobile-alt"></i>smartphone
           </Link>
         </li>
         <li>
           <Link to={"/products?category=pc-portable"}>
-            <i class="fas fa-laptop"></i>pc portable
+            <i className="fas fa-laptop"></i>pc portable
           </Link>
         </li>
         <li>
           <Link to={"/products?category=accessoire"}>
-            <i class="fas fa-headphones"></i>accessoire
+            <i className="fas fa-headphones"></i>accessoire
           </Link>
         </li>
       </ul>

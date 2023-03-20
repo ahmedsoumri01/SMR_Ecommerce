@@ -15,15 +15,15 @@ export default function Footer() {
       <div className="footerContact">
         <h2>contact us</h2>
         <p>
-          <i class="fas fa-phone"></i>
+          <i className="fas fa-phone"></i>
           <span>+216 95941469</span>
         </p>
         <p>
-          <i class="far fa-envelope"></i>
+          <i className="far fa-envelope"></i>
           <span>ahmed@gmail.com</span>
         </p>
         <p>
-          <i class="fas fa-map-marker-alt"></i>
+          <i className="fas fa-map-marker-alt"></i>
           <span>tunisia, jendouba</span>
         </p>
       </div>

@@ -27,7 +27,7 @@ export default function Header() {
 
               <li className="nav-item dropdown">
                 <a
-                  class="nav-link dropdown-toggle"
+                  className="nav-link dropdown-toggle"
                   href="#"
                   id="navbarDropdown"
                   role="button"
@@ -37,10 +37,10 @@ export default function Header() {
                   informatique
                 </a>
 
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                   <li>
                     <a
-                      class="dropdown-item"
+                      className="dropdown-item"
                       href={"/products?category=pc-portable"}
                     >
                       pc portable
@@ -72,10 +72,10 @@ export default function Header() {
                 </ul>
               </li>
             </ul>
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-              <li class="nav-item dropdown">
+            <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
+              <li className="nav-item dropdown">
                 <a
-                  class="nav-link dropdown-toggle d-flex align-items-center"
+                  className="nav-link dropdown-toggle d-flex align-items-center"
                   href="#"
                   id="navbarDropdownMenuLink"
                   role="button"
@@ -84,38 +84,38 @@ export default function Header() {
                 >
                   <img
                     src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img (31).webp"
-                    class="rounded-circle"
+                    className="rounded-circle"
                     height="22"
                     alt="Portrait of a Woman"
                     loading="lazy"
                   />
                 </a>
                 <ul
-                  class="dropdown-menu"
+                  className="dropdown-menu"
                   aria-labelledby="navbarDropdownMenuLink"
                 >
                   <li>
-                    <Link class="dropdown-item" to={"/login"}>
+                    <Link className="dropdown-item" to={"/login"}>
                       login
                     </Link>
                   </li>
                   <li>
-                    <Link class="dropdown-item" to={"/register"}>
+                    <Link className="dropdown-item" to={"/register"}>
                       register
                     </Link>
                   </li>
                   <li>
-                    <Link class="dropdown-item" to={"/admin"}>
+                    <Link className="dropdown-item" to={"/admin"}>
                       Admin Panel
                     </Link>
                   </li>
                 </ul>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">
-                  <span class="badge badge-pill bg-danger">1</span>
+              <li className="nav-item">
+                <a className="nav-link" href="#">
+                  <span className="badge badge-pill bg-danger">1</span>
                   <span>
-                    <i class="fas fa-shopping-cart"></i>
+                    <i className="fas fa-shopping-cart"></i>
                   </span>
                 </a>
               </li>
