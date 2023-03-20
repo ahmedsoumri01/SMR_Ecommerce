@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ProductGrid from "../components/ProductGrid";
 import axios from "axios";
-import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 import "../styles/ShowProducts.css";

@@ -7,6 +7,8 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import CopyRight from "./components/CopyRight";
 import ShowProdducts from "./pages/ShowProducts";
+import ProductDetails from "./pages/ProductDetails";
+import EditProduct from "./pages/admin/EditProduct";
 import { Routes, Route } from "react-router-dom";
 import "./styles/styles.css";
 function App() {
@@ -19,6 +21,8 @@ function App() {
         <Route path="/Register" element={<Register />} />
         <Route path="/admin" element={<Dashboard />} />
         <Route path="/products" element={<ShowProdducts />} />
+        <Route path="/products/:id" element={<ProductDetails />} />
+        <Route path="/admin/edit/:id" element={<EditProduct />} />
       </Routes>
       <Footer />
       <CopyRight />

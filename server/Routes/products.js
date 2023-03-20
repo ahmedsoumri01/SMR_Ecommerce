@@ -18,18 +18,21 @@ router.get("/products", async (req, res) => {
       category: category,
     }).select("-__v");
   }
+  if (!category) {
+    productData = await Product.find().select("-__v");
+  }
 
   res.status(200).json({ data: productData });
 });
 
 // Fetch individual product
-/* router.get("/products/:id", async (req, res) => {
+router.get("/products/:id", async (req, res) => {
   const { id } = req.params;
   const singleProductData = await Product.findById(id).select("-__v");
   singleProductData
     ? res.status(200).json({ data: singleProductData })
     : res.status(400).json({ error: "Oops, Something went wrong!!" });
-}); */
+});
 
 // Add a new product
 router.post("/products", async (req, res) => {
