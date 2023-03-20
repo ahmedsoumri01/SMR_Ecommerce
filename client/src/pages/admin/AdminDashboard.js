@@ -25,34 +25,25 @@ export default function AdminDashboard() {
         </button>
         <ul>
           <li>
-            <Link to={"/"}>
-              <i className="far fa-plus-square"></i>
-              {showMenu ? " Add New Product" : ""}
-            </Link>
+            <i className="far fa-plus-square"></i>
+            {showMenu ? " Add New Product" : ""}
           </li>
           <li>
-            <Link to={"/"}>
-              <i className="fas fa-edit"></i>{" "}
-              {showMenu ? "manage products" : ""}
-            </Link>
+            <i className="fas fa-edit"></i> {showMenu ? "manage products" : ""}
+          </li>
+          {/*  <li>
+            <i className="fas fa-shopping-cart"></i>{" "}
+            {showMenu ? "manage orders" : ""}
           </li>
           <li>
-            <Link to={"/"}>
-              <i className="fas fa-shopping-cart"></i>{" "}
-              {showMenu ? "manage orders" : ""}
-            </Link>
-          </li>
-          <li>
-            <Link to={"/"}>
-              <i className="fas fa-user-alt"></i>{" "}
-              {showMenu ? "manage users" : ""}
-            </Link>
-          </li>
+            <i className="fas fa-user-alt"></i> {showMenu ? "manage users" : ""}
+          </li> */}
         </ul>
       </div>
       <div className="adminSectionDetails">
         <h1>Admin Dashboard</h1>
         {/*  <AddProduct /> */}
+
         <ManageProducts />
       </div>
     </div>

@@ -8,8 +8,8 @@
 }
 .adminSection{
     background-color: #f1f1f1;
-    padding: 15px;
-    border-radius: 5px;
+    padding: 10px;
+        border-radius: 5px;
     box-shadow: 0 0 5px 0 rgba(0,0,0,0.2);
 }
 .adminSection ul{
@@ -24,9 +24,9 @@
     cursor: pointer;
     font-size: 20px;
 }
-.adminSection a:hover{
+/* .adminSection a:hover{
     color: rgb(0, 0, 0);
-}
+} */
 .adminSection li i{
     margin-right: 10px;
 }

@@ -18,7 +18,7 @@ export default function ManageProducts() {
   useEffect(() => {
     getProductsData();
   }, []);
-  console.log("Products Data", productsData);
+  /* console.log("Products Data", productsData); */
   return (
     <div className="ManageProducts">
       <h3>Manage Products</h3>

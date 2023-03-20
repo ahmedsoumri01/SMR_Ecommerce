@@ -4,7 +4,7 @@ export default function Footer() {
   return (
     <div className="footerSection">
       <div>
-        <h1>shop online</h1>
+        <h1>SMR-Store</h1>
         <p>
           Lorem Ipsum is simply dummy text of the printing and typesetting
           industry. Lorem Ipsum has been the industry's standard dummy text ever

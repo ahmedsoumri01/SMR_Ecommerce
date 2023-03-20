@@ -83,7 +83,7 @@ router.post("/products", async (req, res) => {
 });
 
 // Update individual product
-/* router.patch("/products/:id", async (req, res) => {
+router.patch("/products/:id", async (req, res) => {
   const { id } = req.params;
   const updatedProductData = await Product.findByIdAndUpdate(id, req.body, {
     new: true,
@@ -94,7 +94,7 @@ router.post("/products", async (req, res) => {
         message: "Product updated successfully",
       })
     : res.status(400).json({ error: "Oops, Something went wrong!!" });
-}); */
+});
 
 // Delete individual product
 /* router.delete("/products/:id", async (req, res) => {

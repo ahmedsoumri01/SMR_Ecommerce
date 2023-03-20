@@ -7,11 +7,19 @@ import "../styles/ShowProducts.css";
 export default function ShowProducts() {
   const [productsData, setproductsData] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
+  const [filter, setFilter] = useState(false);
   const [minPrix, setMinPrix] = useState("");
   const [maxPrix, setMaxPrix] = useState("");
 
   const queryParameters = new URLSearchParams(window.location.search);
   const category = queryParameters.get("category");
+  const cancelFilter = (e) => {
+    setFilter(false);
+    e.preventDefault();
+    getProductsData();
+    setMaxPrix("");
+    setMinPrix("");
+  };
   const filterFunc = (e) => {
     e.preventDefault();
     if (minPrix === "" || maxPrix === "") {
@@ -26,8 +34,7 @@ export default function ShowProducts() {
         );
       });
       setproductsData(filteredProducts);
-      setMaxPrix("");
-      setMinPrix("");
+      setFilter(true);
     }
   };
   const searchFunc = (e) => {
@@ -91,15 +98,18 @@ export default function ShowProducts() {
                 onChange={(e) => setMaxPrix(e.target.value)}
                 value={maxPrix}
               />
-              <button type="button" onClick={filterFunc}>
-                Filter
-              </button>
-              <button
-                style={{ background: "#bc0000c7" }}
-                onClick={getProductsData}
-              >
-                cancel filter
-              </button>
+              {filter ? (
+                <button
+                  style={{ background: "#bc0000c7" }}
+                  onClick={cancelFilter}
+                >
+                  cancel filter
+                </button>
+              ) : (
+                <button type="button" onClick={filterFunc}>
+                  Filter
+                </button>
+              )}
             </div>
           </div>
         </div>

@@ -26,19 +26,33 @@ export default function ProductDetails() {
   console.log(productData);
   return (
     <div className="ProductDetails">
-      <h1>Product Details</h1>
       <div className="productInfo">
         <div className="productImage">
           <img src={productData.productImage} alt="productImage" />
         </div>
-        <div>
+        <div className="productName">
           <h2>{productData.productName}</h2>
-          <h3>{productData.productPrice}</h3>
-          <h4>{productData.category}</h4>
+          <h5>
+            category : <span>{productData.category}</span>
+          </h5>
+          <div>
+            <h3>{productData.productPrice} DT TTC</h3>
+            <p>
+              disponibilite :
+              {productData.disponibilte ? (
+                <span style={{ color: "green" }}>en stock</span>
+              ) : (
+                <span style={{ color: "red" }}>horstock</span>
+              )}
+            </p>
+          </div>
+          <button id="panierButton">
+            ajouter au panier <i class="fas fa-cart-arrow-down"></i>
+          </button>
         </div>
       </div>
       <div className="productDescription">
-        description
+        <span>Description : </span>
         <p>{productData.productDescription}</p>
       </div>
     </div>
