@@ -19,7 +19,8 @@
 
 .productDescription{
     padding: 25px;
-    margin: 19px 0px 0 0;}
+    margin: 19px 0px 0 0;
+    border-top: 3px solid #90909066;}
 
     .productDescription span{
         font-size: 20px;

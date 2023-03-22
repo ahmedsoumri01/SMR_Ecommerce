@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "../../styles/Admin.css";
 import HomePanel from "./HomePanel";
 import AddProduct from "./AddProduct";
 import ManageProducts from "./ManageProducts";
 import SpecialPromo from "./SpecialPromo";
+import ManageUsers from "./ManageUsers";
 export default function AdminDashboard() {
   const [showMenu, setshowMenu] = useState("");
   const [interfaceSelected, setInterfaceSelected] = useState(0);
@@ -14,11 +15,15 @@ export default function AdminDashboard() {
     if (e.target.id === "AddNewProduct") {
       setInterfaceSelected(1);
     }
+
+    if (e.target.id === "ManageProducts") {
+      setInterfaceSelected(2);
+    }
     if (e.target.id === "SpecialPromo") {
       setInterfaceSelected(3);
     }
-    if (e.target.id === "ManageProducts") {
-      setInterfaceSelected(2);
+    if (e.target.id === "ManageUsers") {
+      setInterfaceSelected(4);
     }
   };
   const showSection = () => {
@@ -29,6 +34,8 @@ export default function AdminDashboard() {
         return <ManageProducts />;
       case 3:
         return <SpecialPromo />;
+      case 4:
+        return <ManageUsers />;
       default:
         return <HomePanel />;
     }
@@ -62,12 +69,16 @@ export default function AdminDashboard() {
           </li>
           <li id="ManageProducts" onClick={section}>
             <i className="fas fa-edit" id="ManageProducts"></i>
-            {showMenu ? "manage products" : ""}
+            {showMenu ? "  manage products" : ""}
           </li>
 
           <li id="SpecialPromo" onClick={section}>
             <i className="fas fa-hand-holding-usd" id="SpecialPromo"></i>
-            {showMenu ? "Special Promo" : ""}
+            {showMenu ? " Special Promo" : ""}
+          </li>
+          <li id="ManageUsers" onClick={section}>
+            <i className="fas fa-user-friends" id="ManageUsers"></i>
+            {showMenu ? " Manage Users" : ""}
           </li>
         </ul>
       </div>

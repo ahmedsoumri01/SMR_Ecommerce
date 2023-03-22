@@ -67,7 +67,7 @@ export default function AddProduct() {
   };
   return (
     <div>
-      AddProduct
+      <h1>Add new product</h1>
       <div className="addProductSection">
         <form>
           <input

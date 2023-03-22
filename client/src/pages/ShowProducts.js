@@ -134,6 +134,7 @@ export default function ShowProducts() {
                 productImage={product.productImage}
                 productName={product.productName.slice(0, 20)}
                 productPrice={product.productPrice}
+                remise={product.remise}
               />
             ))}
           </div>

@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 export default function Footer() {
   return (
     <div className="footerSection">
@@ -24,8 +24,24 @@ export default function Footer() {
         </p>
         <p>
           <i className="fas fa-map-marker-alt"></i>
-          <span>tunisia, jendouba</span>
+          <span>Aindrahem, jendouba</span>
         </p>
+        <div className="footerSocialContact">
+          <Link to={"https://www.facebook.com"}>
+            <i class="fab fa-facebook"></i>
+          </Link>
+          <Link to="https://www.twitter.com">
+            <i class="fab fa-twitter"></i>
+          </Link>
+
+          <Link to="https://www.instagram.com">
+            <i class="fab fa-instagram"></i>
+          </Link>
+
+          <Link to="https://www.whatsapp">
+            <i class="fab fa-whatsapp"></i>
+          </Link>
+        </div>
       </div>
     </div>
   );

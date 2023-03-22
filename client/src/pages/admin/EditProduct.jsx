@@ -52,7 +52,7 @@ export default function EditProduct() {
   /* console.log("Product Data", productData); */
   return (
     <div className=" my-5 container">
-      <h3>Edit Product</h3>
+      <h2>Edit Product</h2>
       <div className="container">
         <form onSubmit={handleFormSubmit}>
           <div className="mb-3">

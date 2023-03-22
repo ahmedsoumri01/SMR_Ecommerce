@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import "../styles/productDetail.css";
+import specialoffreImg from "../images/specialoffre.png";
 export default function ProductDetails() {
   const { id } = useParams();
   const [productData, setProductData] = useState({
@@ -10,6 +11,7 @@ export default function ProductDetails() {
     category: "",
     productDescription: "",
     productImage: "",
+    remise: "",
   });
   useEffect(() => {
     const getProductData = async () => {
@@ -26,6 +28,9 @@ export default function ProductDetails() {
   console.log(productData);
   return (
     <div className="ProductDetails">
+      <div className="offrePromotion">
+        <img src={specialoffreImg} alt="specialoffre" style={{ bottom: "0" }} />
+      </div>
       <div className="productInfo">
         <div className="productImage">
           <img src={productData.productImage} alt="productImage" />
@@ -36,7 +41,23 @@ export default function ProductDetails() {
             category : <span>{productData.category}</span>
           </h5>
           <div>
-            <h3>{productData.productPrice} DT TTC</h3>
+            <h3>
+              {productData.remise ? (
+                <s>
+                  <span>{productData.productPrice} DT</span>
+                </s>
+              ) : (
+                <span>{productData.productPrice} DT</span>
+              )}
+              {productData.remise ? (
+                <span style={{ color: "blue", margin: "0 10px" }}>
+                  {productData.productPrice - productData.remise} DT
+                </span>
+              ) : (
+                ""
+              )}
+            </h3>
+
             <p>
               disponibilite :
               {productData.disponibilte ? (

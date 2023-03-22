@@ -18,9 +18,8 @@ export default function SpecialPromo() {
   };
   const searchFunc = (e) => {
     e.preventDefault();
-    /*   console.log("searchQuery", searchQuery);
-      console.log(selectedcategory) */
-    if (selectedcategory && selectedcategory != "") {
+
+    if (selectedcategory && selectedcategory !== "") {
       axios
         .get(
           `http://localhost:5000/products?productName=${searchQuery}&category=` +
@@ -40,15 +39,16 @@ export default function SpecialPromo() {
     }
   };
   const addRemise = async (e) => {
-    console.log("addRemise", remise);
-    console.log("id", e.target.id);
+    /*  console.log("addRemise", remise);
+    console.log("id", e.target.id); */
     const id = e.target.id;
     try {
       const res = await axios.patch(`http://localhost:5000/products/${id}`, {
         remise: remise,
       });
-      alert(res.data.message);
+      alert("remise set successfully");
       SetRemise("");
+      getProductsData();
     } catch (error) {
       console.error(error);
     }
@@ -59,7 +59,7 @@ export default function SpecialPromo() {
   /*  console.log("Products Data", productsData); */
   return (
     <div>
-      <h1>SpecialPromo</h1>
+      <h1>Special Promo</h1>
       <div className="ManageProducts">
         <div class="d-flex justify-content-center">
           <input
@@ -96,17 +96,20 @@ export default function SpecialPromo() {
               <tr key={product._id}>
                 {/* <th scope="row">{product._id}</th> */}
                 <td>
-                  <img src={product.productImage} width={"70px"} />
+                  <img
+                    src={product.productImage}
+                    alt={product.productImage}
+                    width={"70px"}
+                  />
                 </td>
                 <td className="text-dark ">{product.productName}</td>
                 <td className="text-dark">{product.category}</td>
                 <td className="text-dark">
                   {product.productPrice} DT
                   <div>
-                    <p>add remise</p>
+                    <p>old remise : {product.remise}</p>
                     <input
                       type="number"
-                      value={product.remise}
                       placeholder="remise to product"
                       onChange={(e) => SetRemise(e.target.value)}
                     />

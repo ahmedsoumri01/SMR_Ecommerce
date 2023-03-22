@@ -93,3 +93,60 @@
 
 
 /*dashboard home  component*/
+.homepanel{
+    margin: 10px 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    align-items: center;
+justify-content: space-between;
+
+}
+ .panel{
+    background-color: rgb(250, 250, 250);
+    border-radius: 10px;
+    box-shadow: 1px 1px 26px 3px rgba(58, 58, 58, 0.2);    padding: 10px 20px;
+    margin: 15px 0;
+}
+.panel div{
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;    
+}
+.panel i{
+    font-size: 40px;
+    color: black;
+}
+.panel p{
+    background-color: #9A208C;
+    padding: 5px;
+    color: white;
+    font-size: 35px;
+    font-weight: bold;
+    border: 2px solid #692161;
+    border-top-right-radius: 25px;
+    border-bottom-left-radius: 25px;
+    min-width: 80px;
+    text-align: center;
+}
+.panel span{
+    display: block;
+    color: black;
+    font-size: 30px;
+}
+
+.demopiegraph{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: space-between;
+}
+.demopiegraph > div{
+    max-width: 500px;
+    border: 3px solid #a3a3a369;
+  
+}
+.demopiegraph p{background: #f7f7f7;
+    padding: 10px;
+    border: 3px solid #a3a3a369;
+    color: #000;
+    font-size: 20px;}

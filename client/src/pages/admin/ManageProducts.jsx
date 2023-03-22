@@ -20,9 +20,8 @@ export default function ManageProducts() {
   };
   const searchFunc = (e) => {
     e.preventDefault();
-    /*   console.log("searchQuery", searchQuery);
-    console.log(selectedcategory) */
-    if (selectedcategory && selectedcategory != "") {
+
+    if (selectedcategory && selectedcategory !== "") {
       axios
         .get(
           `http://localhost:5000/products?productName=${searchQuery}&category=` +
@@ -69,10 +68,10 @@ export default function ManageProducts() {
   useEffect(() => {
     getProductsData();
   }, []);
-  console.log("Products Data", productsData);
+  /* console.log("Products Data", productsData); */
   return (
     <div className="ManageProducts">
-      <h3>Manage Products</h3>
+      <h1>Manage products</h1>
 
       <div class="d-flex justify-content-center">
         <input
@@ -111,7 +110,11 @@ export default function ManageProducts() {
             <tr key={product._id}>
               {/* <th scope="row">{product._id}</th> */}
               <td>
-                <img src={product.productImage} width={"70px"} />
+                <img
+                  src={product.productImage}
+                  alt={product.productImage}
+                  width={"70px"}
+                />
               </td>
               <td className="text-dark ">{product.productName}</td>
               <td className="text-dark">{product.productPrice} DT</td>

@@ -89,11 +89,13 @@ margin: 0 10px;
         display: grid;
         grid-template-columns: repeat(3, 1fr);
     }
-
+    .product-image{
+        text-align: center;
+    }
     .product{
        
         text-align: center;
-        max-height: 350px;
+        max-height: 385px;
         max-width: 280px;
         background-color: rgb(255, 255, 255);
         border-radius: 10px;
@@ -115,4 +117,15 @@ margin: 0 10px;
     .product-price span{
         font-size: 15px;
         font-weight: bold;
+    }
+    .offrePromotion{position: absolute;
+        transform: rotate(-23deg);
+    }
+
+    .offrePromotion img{
+        width: 75px;
+        position: relative;
+        bottom: 39px;
+        right: 10%;
+
     }
