@@ -5,7 +5,7 @@ export default function FeatureBox(props) {
     <div className="FeatureBox">
       {props.icon}
       <h5>{props.title}</h5>
-      <p>Lorem ipsum dolor sit amet consectetur elit </p>
+      <p>{props.description}</p>
     </div>
   );
 }

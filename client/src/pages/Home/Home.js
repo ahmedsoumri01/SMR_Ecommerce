@@ -26,15 +26,22 @@ export default function Home() {
         <FeatureBox
           icon={<i class="fab fa-cc-mastercard"></i>}
           title="Secure Payment"
+          description="Shop with confidence knowing your payment information is safe and secure."
         />
-        <FeatureBox icon={<i class="fas fa-sync"></i>} title="90 Days Return" />
+        <FeatureBox
+          icon={<i class="fas fa-sync"></i>}
+          title="90 Days Return"
+          description="If you're not satisfied with your purchase, we offer a 90-day hassle-free return policy."
+        />
         <FeatureBox
           icon={<i class="fas fa-truck"></i>}
           title="Worldwide Delivery"
+          description="We ship to almost every corner of the world, so you can enjoy our products no matter where you are."
         />
         <FeatureBox
           icon={<i class="fas fa-comments"></i>}
           title="24/7 Support"
+          description="Our dedicated support team is available 24/7 to assist you with any questions or concerns you may have."
         />
       </div>
     </div>

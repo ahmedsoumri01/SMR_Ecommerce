@@ -9,13 +9,13 @@ import { getAuth } from "firebase/auth";
 import { getStorage } from "firebase/storage";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCI6wgbts565qHXtzQQ_k8PNNIvj1GZ-c0",
-  authDomain: "smr-ecommerce.firebaseapp.com",
-  projectId: "smr-ecommerce",
-  storageBucket: "smr-ecommerce.appspot.com",
-  messagingSenderId: "312328267215",
-  appId: "1:312328267215:web:947d40604486aa16825eba",
-  measurementId: "G-DEDC1DQH76",
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_FIREBASE_APP_ID,
+  measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID,
 };
 
 // Initialize Firebase

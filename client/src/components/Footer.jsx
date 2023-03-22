@@ -6,10 +6,10 @@ export default function Footer() {
       <div>
         <h1>SMR-Store</h1>
         <p>
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's standard dummy text ever
-          since the 1500s, when an unknown printer took a galley of type and
-          scrambled it to make a type specimen book.
+          Welcome to SMR store, where we offer the latest and greatest in
+          technology to enhance your digital lifestyle! Our collection of
+          smartphones, laptops, and accessories is carefully curated to provide
+          you with the best products at competitive prices.
         </p>
       </div>
       <div className="footerContact">

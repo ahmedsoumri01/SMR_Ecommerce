@@ -4,9 +4,12 @@ import specialoffreImg from "../images/specialoffre.png";
 export default function ProductGrid(props) {
   return (
     <div className="product">
-      <div className="offrePromotion">
-        <img src={specialoffreImg} alt="specialoffre" />
-      </div>
+      {props.remise > 0 ? (
+        <div className="offrePromotion">
+          <img src={specialoffreImg} alt="specialoffre" />
+        </div>
+      ) : null}
+
       <Link to={"/products/" + props.productId}>
         <div className="product-image">
           <img src={props.productImage} alt="product" />
