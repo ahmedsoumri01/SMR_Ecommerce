@@ -21,6 +21,11 @@ router.get("/products", async (req, res) => {
   if (!category) {
     productData = await Product.find().select("-__v");
   }
+  if (!category && productName) {
+    productData = await Product.find({
+      productName: new RegExp(productName, "i"),
+    }).select("-__v");
+  }
 
   res.status(200).json({ data: productData });
 });
@@ -43,6 +48,8 @@ router.post("/products", async (req, res) => {
     productImage,
     disponibilte,
     category,
+    imageLocation,
+    remise,
   } = req.body;
 
   if (!productName || !productPrice || !productDescription || !category) {
@@ -69,6 +76,8 @@ router.post("/products", async (req, res) => {
           productImage,
           disponibilte,
           category,
+          imageLocation,
+          remise,
         });
         await newProduct.save();
         res
@@ -97,7 +106,7 @@ router.patch("/products/:id", async (req, res) => {
 });
 
 // Delete individual product
-/* router.delete("/products/:id", async (req, res) => {
+router.delete("/products/:id", async (req, res) => {
   const { id } = req.params;
   const deletedProductData = await Product.findByIdAndDelete(id);
   deletedProductData
@@ -107,5 +116,5 @@ router.patch("/products/:id", async (req, res) => {
       })
     : res.status(400).json({ error: "Oops, Something went wrong!!" });
 });
- */
+
 module.exports = router;

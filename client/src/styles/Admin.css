@@ -1,3 +1,4 @@
+/* panel and nav*/
 .adminPanel{
     display: flex;
    /*  grid-template-columns: 20% 80%; */
@@ -23,13 +24,14 @@
     margin: 15px 0;
     cursor: pointer;
     font-size: 20px;
+    text-align: center;
 }
-/* .adminSection a:hover{
-    color: rgb(0, 0, 0);
-} */
-.adminSection li i{
+.adminSection li:hover{
+    color: rgb(15, 102, 225);
+}
+/* .adminSection li i{
     margin-right: 10px;
-}
+} */
 .adminSectionDetails{
     width: 100%;
     background-color: #ffffff;
@@ -90,4 +92,4 @@
 
 
 
-/*edit product component*/
+/*dashboard home  component*/

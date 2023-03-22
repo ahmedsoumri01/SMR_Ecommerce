@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import "../../styles/Admin.css";
-import { Link } from "react-router-dom";
+import HomePanel from "./HomePanel";
 import AddProduct from "./AddProduct";
 import ManageProducts from "./ManageProducts";
+import SpecialPromo from "./SpecialPromo";
 export default function AdminDashboard() {
   const [showMenu, setshowMenu] = useState("");
   const [interfaceSelected, setInterfaceSelected] = useState(0);
@@ -12,6 +13,9 @@ export default function AdminDashboard() {
     }
     if (e.target.id === "AddNewProduct") {
       setInterfaceSelected(1);
+    }
+    if (e.target.id === "SpecialPromo") {
+      setInterfaceSelected(3);
     }
     if (e.target.id === "ManageProducts") {
       setInterfaceSelected(2);
@@ -23,8 +27,10 @@ export default function AdminDashboard() {
         return <AddProduct />;
       case 2:
         return <ManageProducts />;
+      case 3:
+        return <SpecialPromo />;
       default:
-        return <h1>hello im an admin </h1>;
+        return <HomePanel />;
     }
   };
 
@@ -45,21 +51,31 @@ export default function AdminDashboard() {
             <i class="fas fa-long-arrow-alt-right"></i>
           )}
         </button>
-        <ul>
+        <ul style={{ width: showMenu ? "200px" : "50px" }}>
           <li id="AdminDashboard" onClick={section}>
-            <i class="fas fa-tachometer-alt"></i>
+            <i class="fas fa-tachometer-alt" id="AdminDashboard"></i>
             {showMenu ? " admin dashboard" : ""}
           </li>
           <li id="AddNewProduct" onClick={section}>
-            <i className="far fa-plus-square"></i>
+            <i className="far fa-plus-square" id="AddNewProduct"></i>
             {showMenu ? " Add New Product" : ""}
           </li>
           <li id="ManageProducts" onClick={section}>
-            <i className="fas fa-edit"></i> {showMenu ? "manage products" : ""}
+            <i className="fas fa-edit" id="ManageProducts"></i>
+            {showMenu ? "manage products" : ""}
+          </li>
+
+          <li id="SpecialPromo" onClick={section}>
+            <i className="fas fa-hand-holding-usd" id="SpecialPromo"></i>
+            {showMenu ? "Special Promo" : ""}
           </li>
         </ul>
       </div>
-      <div className="adminSectionDetails">{showSection()}</div>
+      <div className="adminSectionDetails">
+        {showSection()}
+        {/*  <AddProduct /> */}
+        {/*  <ManageProducts /> */}
+      </div>
     </div>
   );
 }

@@ -114,7 +114,7 @@ export default function EditProduct() {
             </label>
 
             <select
-              className="form-control"
+              className="form-select"
               id="disponibilte"
               name="disponibilte"
               value={productData.disponibilte}
@@ -130,7 +130,7 @@ export default function EditProduct() {
             </label>
 
             <select
-              className="form-control"
+              className="form-select"
               id="category"
               name="category"
               value={productData.category}

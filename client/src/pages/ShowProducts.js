@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import ProductGrid from "../components/ProductGrid";
 import axios from "axios";
 import { Link } from "react-router-dom";
-
+import LoadingScrenAnimation from "../components/LoadingScrenAnimation";
 import "../styles/ShowProducts.css";
 export default function ShowProducts() {
   const [productsData, setproductsData] = useState([]);
@@ -119,9 +119,11 @@ export default function ShowProducts() {
             <i class="fas fa-angle-double-right"></i>
             <h4> {category}</h4>
           </div>
+
           {productsData.length === 0 && (
-            <div style={{ height: "50vh" }}>
-              <h1 style={{ textAlign: "center" }}>No Products yet</h1>
+            <div style={{ height: "60vh" }}>
+              {/*  <h1 style={{ textAlign: "center" }}>No Products yet</h1> */}
+              <LoadingScrenAnimation />
             </div>
           )}
           <div className="productGrid">
@@ -130,7 +132,7 @@ export default function ShowProducts() {
                 key={product._id}
                 productId={product._id}
                 productImage={product.productImage}
-                productName={product.productName}
+                productName={product.productName.slice(0, 20)}
                 productPrice={product.productPrice}
               />
             ))}

@@ -9,10 +9,17 @@ export default function ProductGrid(props) {
         </div>
       </Link>
       <div className="product-name">
-        <a href="#">{props.productName}</a>
+        <Link to={"/products/" + props.productId}>{props.productName}</Link>
       </div>
       <div className="product-price">
         {props.productPrice} <span>DT</span>
+        {props.remise > 0 ? (
+          <span style={{ color: "red", margin: "0 7px" }}>
+            {props.remise}DT
+          </span>
+        ) : (
+          ""
+        )}
       </div>
     </div>
   );
