@@ -14,10 +14,18 @@ router.get("/users", async (req, res) => {
 
 // Add a new product
 router.post("/users", async (req, res) => {
-  const { userName, email, password, confirmPassword, orders, cart } = req.body;
+  const {
+    userName,
+    email,
+    password,
+    confirmPassword,
+    orders,
+    cart,
+    userFirebase,
+  } = req.body;
 
   if (!userName || !email || !password || !confirmPassword) {
-    console.log("new user", userName, email, password, confirmPassword);
+    /* console.log("new user", userName, email, password, confirmPassword); */
     res.status(400).json({ message: "Please fill all the fields" });
   } else {
     try {
@@ -34,6 +42,7 @@ router.post("/users", async (req, res) => {
           confirmPassword,
           orders,
           cart,
+          userFirebase,
         });
         await newUser.save();
         res

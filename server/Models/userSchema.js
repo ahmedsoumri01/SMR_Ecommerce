@@ -23,6 +23,10 @@ const userSchema = new mongoose.Schema({
   cart: {
     type: Array,
   },
+  userFirebase: {
+    type: Object,
+    required: true,
+  },
   createdAt: {
     type: Date,
     default: Date.now,
