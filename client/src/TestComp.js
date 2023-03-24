@@ -22,11 +22,8 @@ export default function TestComp() {
       {isLoggedIn ? (
         <div>
           <p>Welcome, {userType}!</p>
-          <button onClick={handleLogout}>Log Out</button>
         </div>
-      ) : (
-        <button onClick={handleLogin}>Log In as Client</button>
-      )}
+      ) : null}
     </div>
   );
 }

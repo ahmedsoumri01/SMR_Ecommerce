@@ -24,7 +24,7 @@ export default function UserProfile() {
         dispatch({ type: "LOGOUT" });
 
         console.log("User is signed out");
-        window.location.replace("/");
+        window.location.replace("/login");
       })
       .catch((error) => {
         // An error happened.

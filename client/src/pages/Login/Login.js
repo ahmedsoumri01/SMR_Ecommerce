@@ -1,13 +1,9 @@
 import React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import {
-  signInWithEmailAndPassword,
-  onAuthStateChanged,
-  signOut,
-} from "firebase/auth";
+import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase-config";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 
 export default function Login() {
   const [Email, SetEmail] = useState("");
@@ -39,26 +35,7 @@ export default function Login() {
         console.error(errorCode, errorMessage);
       });
   };
-  const checkuser = () => {
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        const uid = user.uid;
-        console.log(uid);
-      } else {
-        console.log("User is not signed out");
-      }
-    });
-  };
-  const logout = () => {
-    signOut(auth)
-      .then(() => {
-        // Sign-out successful.
-        console.log("User is signed out");
-      })
-      .catch((error) => {
-        // An error happened.
-      });
-  };
+
   return (
     <>
       <div className="container">
@@ -99,8 +76,6 @@ export default function Login() {
             </div>
           </div>
         </div>
-        <button onClick={logout}>log out</button> <br></br>
-        <br></br> <button onClick={checkuser}>check</button>
       </div>
     </>
   );
