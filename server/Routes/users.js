@@ -22,6 +22,7 @@ router.post("/users", async (req, res) => {
     orders,
     cart,
     userFirebase,
+    typeOfUser,
   } = req.body;
 
   if (!userName || !email || !password || !confirmPassword) {
@@ -43,6 +44,7 @@ router.post("/users", async (req, res) => {
           orders,
           cart,
           userFirebase,
+          typeOfUser,
         });
         await newUser.save();
         res
