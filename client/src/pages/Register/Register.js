@@ -16,6 +16,7 @@ function Register() {
     password: "",
     confirmPassword: "",
     userFirebase: {},
+    typeOfUser: "client",
   });
 
   const handleSubmit = async (e) => {

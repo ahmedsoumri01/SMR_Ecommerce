@@ -9,22 +9,52 @@ import CopyRight from "./components/CopyRight";
 import ShowProdducts from "./pages/ShowProducts";
 import ProductDetails from "./pages/ProductDetails";
 import EditProduct from "./pages/admin/EditProduct";
+import UserProfile from "./pages/Login/UserProfile";
 import { Routes, Route } from "react-router-dom";
+import { AuthContextProvider } from "./PrivateRoute/AuthContext";
+import ProtectedRoute from "./PrivateRoute/ProtectedRoute";
+
+import TestComp from "./TestComp";
 import "./styles/styles.css";
 function App() {
   return (
     <>
       <Header />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/Register" element={<Register />} />
-        <Route path="/admin" element={<Dashboard />} />
-        <Route path="/products" element={<ShowProdducts />} />
-        <Route path="/products/:id" element={<ProductDetails />} />
-        <Route path="/admin/edit/:id" element={<EditProduct />} />
-      </Routes>
+      <AuthContextProvider>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/Register" element={<Register />} />
+          <Route
+            path="/admin"
+            element={
+              <ProtectedRoute>
+                <Dashboard />
+              </ProtectedRoute>
+            }
+          />
+          <Route path="/products" element={<ShowProdducts />} />
+          <Route path="/products/:id" element={<ProductDetails />} />
+          <Route
+            path="/admin/edit/:id"
+            element={
+              <ProtectedRoute>
+                <EditProduct />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/userprofile"
+            element={
+              <ProtectedRoute>
+                <UserProfile />
+              </ProtectedRoute>
+            }
+          />
+        </Routes>
+      </AuthContextProvider>
       <Footer />
+      <TestComp />
       <CopyRight />
     </>
   );

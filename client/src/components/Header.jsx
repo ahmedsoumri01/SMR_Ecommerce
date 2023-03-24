@@ -1,6 +1,30 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { onAuthStateChanged, signOut } from "firebase/auth";
+import { auth } from "../firebase-config";
 export default function Header() {
+  // Dispatch actions to the Redux store
+  const dispatch = useDispatch();
+  // Access state variables from the Redux store
+  const isLoggedIn = useSelector((state) => state.isLoggedIn);
+  const userType = useSelector((state) => state.userType);
+  const logout = () => {
+    signOut(auth)
+      .then(() => {
+        // Sign-out successful.
+
+        dispatch({ type: "LOGOUT" });
+
+        console.log("User is signed out");
+        window.location.replace("/");
+      })
+      .catch((error) => {
+        // An error happened.
+        console.log(error.message);
+      });
+  };
+
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -94,21 +118,35 @@ export default function Header() {
                   className="dropdown-menu"
                   aria-labelledby="navbarDropdownMenuLink"
                 >
-                  <li>
-                    <Link className="dropdown-item" to={"/login"}>
-                      login
-                    </Link>
-                  </li>
-                  <li>
-                    <Link className="dropdown-item" to={"/register"}>
-                      register
-                    </Link>
-                  </li>
-                  <li>
-                    <Link className="dropdown-item" to={"/admin"}>
-                      Admin Panel
-                    </Link>
-                  </li>
+                  {!isLoggedIn ? (
+                    <li>
+                      <Link className="dropdown-item" to={"/login"}>
+                        login
+                      </Link>
+                    </li>
+                  ) : null}
+                  {!isLoggedIn ? (
+                    <li>
+                      <Link className="dropdown-item" to={"/register"}>
+                        register
+                      </Link>
+                    </li>
+                  ) : null}
+                  {isLoggedIn && userType == "admin" ? (
+                    <li>
+                      <Link className="dropdown-item" to={"/admin"}>
+                        Admin Panel
+                      </Link>
+                    </li>
+                  ) : null}
+
+                  {isLoggedIn ? (
+                    <li>
+                      <Link className="dropdown-item" onClick={logout}>
+                        Logout
+                      </Link>
+                    </li>
+                  ) : null}
                 </ul>
               </li>
               <li className="nav-item">
