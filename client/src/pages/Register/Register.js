@@ -11,6 +11,7 @@ import axios from "axios";
 function Register() {
   const [EureurMsg, SetEureurMsg] = useState("");
   const [formData, setFormData] = useState({
+    __id: "",
     userName: "",
     email: "",
     password: "",
@@ -31,6 +32,7 @@ function Register() {
 
           setFormData({
             ...formData,
+            __id: user.uid,
             userFirebase: user.auth,
           });
 

@@ -23,6 +23,7 @@ export default function PromotionSlider() {
         if (product.remise && product.remise > 0) {
           return (
             <ProductGrid
+              key={product._id}
               productId={product._id}
               productImage={product.productImage}
               productName={product.productName.slice(0, 20)}

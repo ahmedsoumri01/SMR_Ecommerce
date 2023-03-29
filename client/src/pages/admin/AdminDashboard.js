@@ -5,9 +5,13 @@ import AddProduct from "./AddProduct";
 import ManageProducts from "./ManageProducts";
 import SpecialPromo from "./SpecialPromo";
 import ManageUsers from "./ManageUsers";
+import { useSelector } from "react-redux";
+
 export default function AdminDashboard() {
   const [showMenu, setshowMenu] = useState("");
   const [interfaceSelected, setInterfaceSelected] = useState(0);
+  const userType = useSelector((state) => state.userType);
+
   const section = (e) => {
     if (e.target.id === "AdminDashboard") {
       setInterfaceSelected(0);
@@ -44,7 +48,8 @@ export default function AdminDashboard() {
   const showMenuHandler = () => {
     setshowMenu(!showMenu);
   };
-  return (
+
+  userType === "admin" ? (
     <div className="adminPanel">
       <div className="adminSection">
         <button
@@ -82,11 +87,9 @@ export default function AdminDashboard() {
           </li>
         </ul>
       </div>
-      <div className="adminSectionDetails">
-        {showSection()}
-        {/*  <AddProduct /> */}
-        {/*  <ManageProducts /> */}
-      </div>
+      <div className="adminSectionDetails">{showSection()}</div>
     </div>
+  ) : (
+    window.location.replace("/userprofile")
   );
 }

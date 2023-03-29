@@ -12,7 +12,7 @@ router.get("/users", async (req, res) => {
   res.status(200).json({ data: userData });
 });
 
-// Add a new product
+// Add a new user
 router.post("/users", async (req, res) => {
   const {
     userName,
@@ -57,5 +57,21 @@ router.post("/users", async (req, res) => {
     }
   }
 });
+// Fetch individual user by ID or email
+router.get("/users/:identifier", async (req, res) => {
+  const { identifier } = req.params;
+  let userData;
+  if (identifier.match(/^[0-9a-fA-F]{24}$/)) {
+    // If identifier is a valid ObjectID
+    userData = await User.findById(identifier).select("-__v");
+  } else {
+    // userData identifier is an email address
+    userData = await User.findOne({
+      email: new RegExp(identifier, "i"),
+    }).select("-__v");
+  }
+  res.status(200).json({ data: userData });
+});
+// Update individual product
 
 module.exports = router;

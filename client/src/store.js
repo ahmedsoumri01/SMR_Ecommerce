@@ -6,6 +6,8 @@ import storage from "redux-persist/lib/storage";
 const initialState = {
   isLoggedIn: false,
   userType: null,
+  userId: null,
+  cart: [],
 };
 
 // Define reducer function to handle state changes
@@ -16,13 +18,31 @@ function rootReducer(state = initialState, action) {
         ...state,
         isLoggedIn: true,
         userType: action.userType,
+        userId: action.userId,
       };
     case "LOGOUT":
       return {
         ...state,
         isLoggedIn: false,
         userType: null,
+        userId: null,
       };
+    case "ADD_TO_CART":
+      return {
+        ...state,
+        cart: [...state.cart, action.productId],
+      };
+    case "EMPTY_CART":
+      return {
+        ...state,
+        cart: [],
+      };
+    case "UPDATE_CART":
+      return {
+        ...state,
+        cart: action.cart,
+      };
+
     default:
       return state;
   }

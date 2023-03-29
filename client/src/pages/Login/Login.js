@@ -4,30 +4,47 @@ import { Link } from "react-router-dom";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase-config";
 import { useDispatch } from "react-redux";
+import axios from "axios";
 
 export default function Login() {
   const [Email, SetEmail] = useState("");
   const [Password, SetPassword] = useState("");
+
   // Dispatch actions to the Redux store
   const dispatch = useDispatch();
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Email: ", Email);
-    console.log("Password: ", Password);
+    /* console.log("Email: ", Email);
+    console.log("Password: ", Password); */
     // handle form submission
     signInWithEmailAndPassword(auth, Email, Password)
       .then((userCredential) => {
         // Signed in
-        alert("Success");
-        const user = userCredential.user;
-        console.log(user);
-        if (user.email === "ahmedsoumri01@gmail.com") {
-          dispatch({ type: "LOGIN", userType: "admin" });
-          window.location.replace("/userprofile");
-        } else {
-          dispatch({ type: "LOGIN", userType: "client" });
-          window.location.replace("/userprofile");
-        }
+        console.log("Success");
+
+        axios
+          .get(`http://localhost:5000/users/${Email}`)
+          .then((res) => {
+            res.data.data.map((user) => {
+              if (user.typeOfUser === "admin") {
+                dispatch({
+                  type: "LOGIN",
+                  userType: "admin",
+                  userId: user._id,
+                });
+
+                window.location.replace("/admin");
+              } else {
+                dispatch({
+                  type: "LOGIN",
+                  userType: "user",
+                  userId: user._id,
+                });
+                window.location.replace("/");
+              }
+            });
+          })
+          .catch((error) => console.error(error));
       })
       .catch((error) => {
         const errorCode = error.code;

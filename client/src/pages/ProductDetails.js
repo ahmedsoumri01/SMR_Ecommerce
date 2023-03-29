@@ -3,8 +3,13 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 import "../styles/productDetail.css";
 import specialoffreImg from "../images/specialoffre.png";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+
 export default function ProductDetails() {
   const { id } = useParams();
+  const userId = useSelector((state) => state.userId);
+  const cart = useSelector((state) => state.cart);
   const [productData, setProductData] = useState({
     productName: "",
     productPrice: "",
@@ -13,6 +18,8 @@ export default function ProductDetails() {
     productImage: "",
     remise: "",
   });
+  // Dispatch actions to the Redux store
+  const dispatch = useDispatch();
   useEffect(() => {
     const getProductData = async () => {
       try {
@@ -24,8 +31,21 @@ export default function ProductDetails() {
     };
 
     getProductData();
-  }, [id]);
-  console.log(productData);
+  }, []);
+
+  const AddToCart = () => {
+    const productId = id;
+
+    console.log("cart", cart);
+    if (cart.includes(productId)) {
+      alert("This product is already in your cart!");
+      return;
+    } else {
+      dispatch({ type: "ADD_TO_CART", productId });
+      alert("Product added");
+    }
+  };
+
   return (
     <div className="ProductDetails">
       <div className="offrePromotion">
@@ -53,9 +73,7 @@ export default function ProductDetails() {
                 <span style={{ color: "blue", margin: "0 10px" }}>
                   {productData.productPrice - productData.remise} DT
                 </span>
-              ) : (
-                ""
-              )}
+              ) : null}
             </h3>
 
             <p>
@@ -67,7 +85,7 @@ export default function ProductDetails() {
               )}
             </p>
           </div>
-          <button id="panierButton">
+          <button id="panierButton" onClick={AddToCart}>
             ajouter au panier <i class="fas fa-cart-arrow-down"></i>
           </button>
         </div>

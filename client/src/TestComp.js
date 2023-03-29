@@ -9,14 +9,6 @@ export default function TestComp() {
   // Dispatch actions to the Redux store
   const dispatch = useDispatch();
 
-  const handleLogin = () => {
-    dispatch({ type: "LOGIN", userType: "Admin" });
-  };
-
-  const handleLogout = () => {
-    dispatch({ type: "LOGOUT" });
-  };
-
   return (
     <div>
       {isLoggedIn ? (

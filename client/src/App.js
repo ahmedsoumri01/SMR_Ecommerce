@@ -9,7 +9,8 @@ import CopyRight from "./components/CopyRight";
 import ShowProdducts from "./pages/ShowProducts";
 import ProductDetails from "./pages/ProductDetails";
 import EditProduct from "./pages/admin/EditProduct";
-import UserProfile from "./pages/Login/UserProfile";
+import UserProfile from "./pages/profile/UserProfile";
+import Cart from "./pages/profile/Cart";
 import { Routes, Route } from "react-router-dom";
 import { AuthContextProvider } from "./PrivateRoute/AuthContext";
 import ProtectedRoute from "./PrivateRoute/ProtectedRoute";
@@ -51,6 +52,7 @@ function App() {
               </ProtectedRoute>
             }
           />
+          <Route path="/cart" element={<Cart />} />
         </Routes>
       </AuthContextProvider>
       <Footer />

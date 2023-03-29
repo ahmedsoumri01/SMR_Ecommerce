@@ -28,18 +28,18 @@ export default function Footer() {
         </p>
         <div className="footerSocialContact">
           <Link to={"https://www.facebook.com"}>
-            <i class="fab fa-facebook"></i>
+            <i className="fab fa-facebook"></i>
           </Link>
           <Link to="https://www.twitter.com">
-            <i class="fab fa-twitter"></i>
+            <i className="fab fa-twitter"></i>
           </Link>
 
           <Link to="https://www.instagram.com">
-            <i class="fab fa-instagram"></i>
+            <i className="fab fa-instagram"></i>
           </Link>
 
           <Link to="https://www.whatsapp">
-            <i class="fab fa-whatsapp"></i>
+            <i className="fab fa-whatsapp"></i>
           </Link>
         </div>
       </div>

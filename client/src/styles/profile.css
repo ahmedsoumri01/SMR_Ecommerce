@@ -1,0 +1,53 @@
+/* geeneral style*/
+
+.userprofile{ display: flex;
+  
+     padding: 20px;
+     gap: 15px;
+    }
+
+    #userprofileNav{
+        width: 20%;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 10px;
+    }
+    #userprofileNav ul{
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+    #userprofileNav  li{
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 5px;
+        border-bottom: 1px solid #ccc;
+        margin: 15px 0;
+        cursor: pointer;
+        font-size: 20px; 
+    }
+    #userprofileNav  li:hover{
+        color: rgb(15, 102, 225);
+    }
+
+    /* account detail style */
+    .MyDetails{
+      
+      
+        padding: 10px;
+    }
+
+    .userInformation h4{
+        font-size: 20px;
+        font-weight: 500;
+        margin: 10px 0;
+        padding: 10px 5px;
+        border-bottom: 2px solid #d0d0d0;;
+    }
+    .userInformation div{
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px;
+    }

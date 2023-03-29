@@ -43,7 +43,10 @@ export default function ManageUsers() {
         <thead>
           <tr>
             <th scope="col">user name</th>
+            <th scope="col">Type of user</th>
+
             <th scope="col">email</th>
+
             <th scope="col">createdAt</th>
 
             <th scope="col">Action</th>
@@ -53,6 +56,8 @@ export default function ManageUsers() {
           {UsersData.map((User) => (
             <tr key={User._id}>
               <td className="text-dark ">{User.userName}</td>
+              <td className="text-dark ">{User.typeOfUser}</td>
+
               <td className="text-dark ">{User.email}</td>
 
               <td className="text-dark">{User.createdAt}</td>
@@ -61,6 +66,7 @@ export default function ManageUsers() {
                   className="btn btn-danger m-1"
                   value={User._id}
                   onClick={deleteUser}
+                  disabled={User.typeOfUser == "admin" ? "true" : null}
                 >
                   Delete
                 </button>

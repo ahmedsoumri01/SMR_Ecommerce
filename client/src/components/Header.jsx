@@ -52,7 +52,6 @@ export default function Header() {
               <li className="nav-item dropdown">
                 <a
                   className="nav-link dropdown-toggle"
-                  href="#"
                   id="navbarDropdown"
                   role="button"
                   data-mdb-toggle="dropdown"
@@ -73,16 +72,15 @@ export default function Header() {
                 </ul>
               </li>
               <li className="nav-item dropdown">
-                <a
+                <Link
                   class="nav-link dropdown-toggle"
-                  href="#"
                   id="navbarDropdown"
                   role="button"
                   data-mdb-toggle="dropdown"
                   aria-expanded="false"
                 >
                   telephonie
-                </a>
+                </Link>
 
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                   <li>
@@ -118,6 +116,13 @@ export default function Header() {
                   className="dropdown-menu"
                   aria-labelledby="navbarDropdownMenuLink"
                 >
+                  {isLoggedIn ? (
+                    <li>
+                      <Link className="dropdown-item" to={"/userprofile"}>
+                        profile
+                      </Link>
+                    </li>
+                  ) : null}
                   {!isLoggedIn ? (
                     <li>
                       <Link className="dropdown-item" to={"/login"}>
@@ -150,12 +155,12 @@ export default function Header() {
                 </ul>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">
+                <Link className="nav-link" to="/cart">
                   <span className="badge badge-pill bg-danger">1</span>
                   <span>
                     <i className="fas fa-shopping-cart"></i>
                   </span>
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
