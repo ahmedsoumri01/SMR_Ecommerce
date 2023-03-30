@@ -34,9 +34,11 @@ export default function ProductDetails() {
   }, []);
 
   const AddToCart = () => {
-    const productId = id;
+    const productId = {
+      ...productData,
+      quantity: 1,
+    };
 
-    console.log("cart", cart);
     if (cart.includes(productId)) {
       alert("This product is already in your cart!");
       return;

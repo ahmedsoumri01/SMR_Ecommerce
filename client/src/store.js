@@ -42,6 +42,11 @@ function rootReducer(state = initialState, action) {
         ...state,
         cart: action.cart,
       };
+    case "REMOVE_FROM_CART":
+      return {
+        ...state,
+        cart: state.cart.filter((product) => product._id !== action.productId),
+      };
 
     default:
       return state;

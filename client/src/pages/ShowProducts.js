@@ -4,7 +4,16 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import LoadingScrenAnimation from "../components/LoadingScrenAnimation";
 import "../styles/ShowProducts.css";
+
+//debuging functions
+import { useDispatch } from "react-redux";
 export default function ShowProducts() {
+  const dispatch = useDispatch();
+
+  const emptyCart = () => {
+    dispatch({ type: "EMPTY_CART" });
+    alert("cart is empty now ");
+  };
   const [productsData, setproductsData] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [filter, setFilter] = useState(false);
@@ -64,6 +73,9 @@ export default function ShowProducts() {
   }, []);
   return (
     <>
+      <button className="btn btn-danger ml-3" onClick={emptyCart}>
+        Empty Cart
+      </button>
       <div className="searchBar">
         <form onSubmit={searchFunc}>
           <input
