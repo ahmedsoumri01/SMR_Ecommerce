@@ -23,11 +23,11 @@ export default function AddProduct() {
       disponibilte,
       imageLocation: location,
     };
-    console.log("before download" + product);
+    /*  console.log("before download" + product); */
     axios
       .post("http://localhost:5000/products", product)
       .then((res) => {
-        console.log(res.data);
+        /*  console.log(res.data); */
         setProductName("");
         setProductPrice("");
         setProductImage("");
@@ -128,6 +128,9 @@ export default function AddProduct() {
           >
             <option value="">Select Category</option>
             <option value="pc-portable">pc-portable</option>
+            <option value="smartWatch">smart Watch</option>
+            <option value="accessoires">accessoires</option>
+
             <option value="smartphone">smartphone</option>
           </select>
           <button type="button" onClick={handleUpload} className="form-control">

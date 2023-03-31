@@ -73,9 +73,9 @@ export default function ShowProducts() {
   }, []);
   return (
     <>
-      <button className="btn btn-danger ml-3" onClick={emptyCart}>
+      {/* <button className="btn btn-danger ml-3" onClick={emptyCart}>
         Empty Cart
-      </button>
+      </button> */}
       <div className="searchBar">
         <form onSubmit={searchFunc}>
           <input

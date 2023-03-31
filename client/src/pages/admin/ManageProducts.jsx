@@ -43,7 +43,7 @@ export default function ManageProducts() {
 
   const deleteProduct = async (e) => {
     e.preventDefault();
-    console.log(e.target.name);
+    /* console.log(e.target.name); */
     const desertRef = ref(storage, e.target.name);
 
     // Delete the file

@@ -56,7 +56,7 @@ function App() {
         </Routes>
       </AuthContextProvider>
       <Footer />
-      <TestComp />
+      {/* <TestComp /> */}
       <CopyRight />
     </>
   );

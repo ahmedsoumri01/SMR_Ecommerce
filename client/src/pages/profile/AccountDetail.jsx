@@ -26,15 +26,30 @@ export default function AccountDetail() {
         <h4>Personal information</h4>
         <div>
           <label>user name : </label>
-          <input type="text" value={userData.userName} readOnly />
+          <input
+            type="text"
+            className="form-control"
+            value={userData.userName}
+            readOnly
+          />
         </div>
         <div>
           <label>user email : </label>
-          <input type="text" value={userData.email} readOnly />
+          <input
+            type="text"
+            value={userData.email}
+            className="form-control"
+            readOnly
+          />
         </div>
         <div>
           <label>user type : </label>
-          <input type="text" value={userData.typeOfUser} readOnly />
+          <input
+            type="text"
+            value={userData.typeOfUser}
+            className="form-control"
+            readOnly
+          />
         </div>
       </div>
     </div>

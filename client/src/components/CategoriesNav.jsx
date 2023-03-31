@@ -19,11 +19,11 @@ export default function CategoriesNav() {
             <i className="fas fa-laptop"></i>pc portable
           </Link>
         </li>
-        {/*  <li>
-          <Link to={"/products?category=accessoire"}>
+        <li>
+          <Link to={"/products?category=accessoires"}>
             <i className="fas fa-headphones"></i>accessoire
           </Link>
-        </li> */}
+        </li>
       </ul>
     </div>
   );

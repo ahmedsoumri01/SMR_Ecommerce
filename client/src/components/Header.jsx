@@ -50,6 +50,24 @@ export default function Header() {
                   Home
                 </Link>
               </li>
+              <li className="nav-item">
+                <a
+                  className="nav-link "
+                  aria-current="page"
+                  href={"/products?category=smartWatch"}
+                >
+                  smart watch
+                </a>
+              </li>
+              <li className="nav-item">
+                <a
+                  className="nav-link "
+                  aria-current="page"
+                  href={"/products?category=accessoires"}
+                >
+                  accessoires
+                </a>
+              </li>
 
               <li className="nav-item dropdown">
                 <a

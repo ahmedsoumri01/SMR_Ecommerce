@@ -18,6 +18,19 @@ router.get("/orders", async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 });
+// Update an order status
+router.put("/orders/:id", async (req, res) => {
+  try {
+    const updatedOrder = await Order.findByIdAndUpdate(
+      req.params.id,
+      { orderEtat: req.body.orderEtat },
+      { new: true }
+    );
+    res.json(updatedOrder);
+  } catch (error) {
+    res.status(400).json({ message: error.message });
+  }
+});
 
 // Create a new order
 router.post("/orders", async (req, res) => {

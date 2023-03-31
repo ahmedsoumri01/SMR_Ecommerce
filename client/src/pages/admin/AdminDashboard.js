@@ -5,6 +5,7 @@ import AddProduct from "./AddProduct";
 import ManageProducts from "./ManageProducts";
 import SpecialPromo from "./SpecialPromo";
 import ManageUsers from "./ManageUsers";
+import ManageOrders from "./ManageOrders";
 import { useSelector } from "react-redux";
 
 export default function AdminDashboard() {
@@ -29,6 +30,9 @@ export default function AdminDashboard() {
     if (e.target.id === "ManageUsers") {
       setInterfaceSelected(4);
     }
+    if (e.target.id === "ManageOrders") {
+      setInterfaceSelected(5);
+    }
   };
   const showSection = () => {
     switch (interfaceSelected) {
@@ -40,6 +44,8 @@ export default function AdminDashboard() {
         return <SpecialPromo />;
       case 4:
         return <ManageUsers />;
+      case 5:
+        return <ManageOrders />;
       default:
         return <HomePanel />;
     }
@@ -83,6 +89,10 @@ export default function AdminDashboard() {
           <li id="ManageUsers" onClick={section}>
             <i className="fas fa-user-friends" id="ManageUsers"></i>
             {showMenu ? " Manage Users" : ""}
+          </li>
+          <li id="ManageOrders" onClick={section}>
+            <i class="fas fa-truck-loading" id="ManageOrders"></i>
+            {showMenu ? " Manage Orders" : ""}
           </li>
         </ul>
       </div>

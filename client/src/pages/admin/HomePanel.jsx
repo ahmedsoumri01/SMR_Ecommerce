@@ -28,7 +28,7 @@ export default function HomePanel() {
     axios
       .get(url)
       .then((res) => {
-        setordersData(res.data.data);
+        setordersData(res.data);
       })
       .catch((error) => console.error(error));
   };
@@ -36,21 +36,6 @@ export default function HomePanel() {
   useEffect(() => {
     getProductsData();
   }, []);
-
-  const orders = [
-    {
-      type: "accepted",
-      value: 50,
-    },
-    {
-      type: "attend",
-      value: 20,
-    },
-    {
-      type: "denied",
-      value: 5,
-    },
-  ];
 
   // Assuming your array of products is called 'productsData'
   const categories = productsData.reduce((acc, product) => {
@@ -72,6 +57,24 @@ export default function HomePanel() {
     return acc;
   }, []);
 
+  const orderEtats = ordersData.reduce((acc, order) => {
+    // Check if the current orderEtat already exists in the accumulator
+    const orderEtatIndex = acc.findIndex((oe) => oe.type === order.orderEtat);
+
+    // If the orderEtat exists, increment the value of the corresponding object
+    if (orderEtatIndex !== -1) {
+      acc[orderEtatIndex].value++;
+    }
+    // Otherwise, add a new object to the accumulator
+    else {
+      acc.push({
+        type: order.orderEtat,
+        value: 1,
+      });
+    }
+
+    return acc;
+  }, []);
   return (
     <div>
       <h1>Admin Dashboard</h1>
@@ -95,7 +98,7 @@ export default function HomePanel() {
           <span>Orders</span>
           <div>
             <i class="fas fa-truck-loading"></i>
-            <p>45</p>
+            <p>{ordersData.length}</p>
           </div>
         </div>
       </div>
@@ -106,7 +109,7 @@ export default function HomePanel() {
         </div>
         <div>
           <p>orders : </p>
-          <DemoPie data={orders} />
+          <DemoPie data={orderEtats} />
         </div>
       </div>
     </div>

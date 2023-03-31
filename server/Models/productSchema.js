@@ -26,6 +26,7 @@ const productSchema = new mongoose.Schema({
   },
   category: {
     type: String,
+    enum: ["smartphone", "pc-portable", "smartWatch", "accessoires"],
     required: true,
   },
   imageLocation: {

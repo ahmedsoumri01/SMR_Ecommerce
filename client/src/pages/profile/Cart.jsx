@@ -77,7 +77,7 @@ export default function Cart() {
     axios
       .post("http://localhost:5000/orders", newOrder)
       .then((res) => {
-        console.log(res.data);
+        /*  console.log(res.data); */
         alert("ordered successfully");
         setFirstName("");
         setLastName("");
@@ -154,7 +154,7 @@ export default function Cart() {
                   </td>
                   <td>
                     {product.remise > 0 ? (
-                      <s>{product.productPrice - product.remise} DT</s>
+                      <s>{product.productPrice} DT</s>
                     ) : (
                       <p>{product.productPrice} DT</p>
                     )}
