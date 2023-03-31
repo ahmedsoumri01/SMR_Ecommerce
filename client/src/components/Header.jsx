@@ -8,6 +8,8 @@ export default function Header() {
   const dispatch = useDispatch();
   // Access state variables from the Redux store
   const isLoggedIn = useSelector((state) => state.isLoggedIn);
+  const cart = useSelector((state) => state.cart);
+
   const userType = useSelector((state) => state.userType);
   const logout = () => {
     signOut(auth)
@@ -24,7 +26,7 @@ export default function Header() {
         console.log(error.message);
       });
   };
-
+  /*  console.log(cart.length); */
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -156,7 +158,9 @@ export default function Header() {
               </li>
               <li className="nav-item">
                 <Link className="nav-link" to="/cart">
-                  <span className="badge badge-pill bg-danger">1</span>
+                  <span className="badge badge-pill bg-danger">
+                    {cart.length}
+                  </span>
                   <span>
                     <i className="fas fa-shopping-cart"></i>
                   </span>

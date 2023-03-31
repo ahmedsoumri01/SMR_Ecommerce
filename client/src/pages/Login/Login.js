@@ -21,11 +21,16 @@ export default function Login() {
       .then((userCredential) => {
         // Signed in
         console.log("Success");
+        const user = userCredential.user;
+        if (user != null) {
+          axios
+            .get(`http://localhost:5000/users/${Email}`)
+            .then((res) => {
+              /* console.log(res.data.data); */
+              const user = res.data.data;
+              /*  console.log(user.email);
+              console.log(user.typeOfUser); */
 
-        axios
-          .get(`http://localhost:5000/users/${Email}`)
-          .then((res) => {
-            res.data.data.map((user) => {
               if (user.typeOfUser === "admin") {
                 dispatch({
                   type: "LOGIN",
@@ -42,9 +47,9 @@ export default function Login() {
                 });
                 window.location.replace("/");
               }
-            });
-          })
-          .catch((error) => console.error(error));
+            })
+            .catch((error) => console.error(error));
+        }
       })
       .catch((error) => {
         const errorCode = error.code;
