@@ -48,8 +48,7 @@ export default function AdminDashboard() {
   const showMenuHandler = () => {
     setshowMenu(!showMenu);
   };
-
-  userType === "admin" ? (
+  return userType === "admin" ? (
     <div className="adminPanel">
       <div className="adminSection">
         <button

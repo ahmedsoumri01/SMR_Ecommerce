@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import "../../styles/profile.css";
-import Orders from "./Orders";
+import Orders from "./MyOrders";
 import Cart from "./Cart";
 import AccountSettings from "./AccountSettings";
 import AccountDetail from "./AccountDetail";

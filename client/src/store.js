@@ -47,6 +47,15 @@ function rootReducer(state = initialState, action) {
         ...state,
         cart: state.cart.filter((product) => product._id !== action.productId),
       };
+    case "UPDATE_QUANTITY":
+      return {
+        ...state,
+        cart: state.cart.map((product) =>
+          product._id === action.productId
+            ? { ...product, quantity: action.quantity }
+            : product
+        ),
+      };
 
     default:
       return state;

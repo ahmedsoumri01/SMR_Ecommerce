@@ -4,6 +4,7 @@ import DemoPie from "../../components/DemoPie";
 export default function HomePanel() {
   const [productsData, setproductsData] = useState([]);
   const [usersData, setusersData] = useState([]);
+  const [ordersData, setordersData] = useState([]);
 
   const getProductsData = async () => {
     let url = "http://localhost:5000/products";
@@ -20,6 +21,14 @@ export default function HomePanel() {
       .get(url)
       .then((res) => {
         setusersData(res.data.data);
+      })
+      .catch((error) => console.error(error));
+    /* get orders data */
+    url = "http://localhost:5000/orders";
+    axios
+      .get(url)
+      .then((res) => {
+        setordersData(res.data.data);
       })
       .catch((error) => console.error(error));
   };

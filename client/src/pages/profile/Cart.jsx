@@ -26,14 +26,20 @@ export default function Cart() {
   const removeProduct = (product) => {
     dispatch({ type: "REMOVE_FROM_CART", productId: product._id });
   };
-
+  const updateQuantity = (product, quantity) => {
+    dispatch({
+      type: "UPDATE_QUANTITY",
+      productId: product._id,
+      quantity: quantity,
+    });
+  };
   const getTotal = () => {
     let total = 0;
     for (const product of cart) {
       const price =
         product.remise > 0
-          ? product.productPrice - product.remise
-          : product.productPrice;
+          ? (product.productPrice - product.remise) * product.quantity
+          : product.productPrice * product.quantity;
       total += price;
     }
     return total.toFixed(2);
@@ -120,12 +126,31 @@ export default function Cart() {
                     </div>
                   </td>
                   <td>
-                    <input
-                      type={"number"}
-                      min={1}
-                      max={100}
-                      value={product.quantity}
-                    />
+                    <div className="d-flex align-items-center">
+                      <button
+                        className="btn btn-light"
+                        onClick={() =>
+                          updateQuantity(product, product.quantity - 1)
+                        }
+                        disabled={product.quantity === 1 ? true : false}
+                      >
+                        -
+                      </button>
+                      <span
+                        className="mx-2"
+                        style={{ fontSize: "1.2rem", fontWeight: "bold" }}
+                      >
+                        {product.quantity}
+                      </span>
+                      <button
+                        className="btn btn-light"
+                        onClick={() =>
+                          updateQuantity(product, product.quantity + 1)
+                        }
+                      >
+                        +
+                      </button>
+                    </div>
                   </td>
                   <td>
                     {product.remise > 0 ? (
