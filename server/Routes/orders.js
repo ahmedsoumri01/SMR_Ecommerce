@@ -5,9 +5,13 @@ const Order = require("../models/orderSchema");
 // Get all orders
 router.get("/orders", async (req, res) => {
   try {
-    const { clientID } = req.query;
+    const { clientID, orderStatus } = req.query;
     /*  console.log("loggedtID", clientID); */
-    if (clientID) {
+    if (orderStatus) {
+      /*  console.log("orderStatus", orderStatus); */
+      const orders = await Order.find({ orderEtat: orderStatus });
+      res.json(orders);
+    } else if (clientID) {
       const orders = await Order.find({ clientID: clientID });
       res.json(orders);
     } else {

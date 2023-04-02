@@ -71,28 +71,65 @@ export default function AdminDashboard() {
         <ul style={{ width: showMenu ? "200px" : "50px" }}>
           <li id="AdminDashboard" onClick={section}>
             <i class="fas fa-tachometer-alt" id="AdminDashboard"></i>
-            {showMenu ? " admin dashboard" : ""}
+            {showMenu ? (
+              "admin dashboard "
+            ) : (
+              <p className="hidenIcon">
+                <div>admin dashboard</div>
+              </p>
+            )}
           </li>
           <li id="AddNewProduct" onClick={section}>
             <i className="far fa-plus-square" id="AddNewProduct"></i>
-            {showMenu ? " Add New Product" : ""}
+            {showMenu ? (
+              "Add New Product "
+            ) : (
+              <p className="hidenIcon">
+                <div> Add New Product</div>
+              </p>
+            )}
           </li>
           <li id="ManageProducts" onClick={section}>
             <i className="fas fa-edit" id="ManageProducts"></i>
-            {showMenu ? "  manage products" : ""}
+            {showMenu ? (
+              " manage products "
+            ) : (
+              <p className="hidenIcon">
+                <div> manage products</div>
+              </p>
+            )}
           </li>
 
           <li id="SpecialPromo" onClick={section}>
             <i className="fas fa-hand-holding-usd" id="SpecialPromo"></i>
-            {showMenu ? " Special Promo" : ""}
+            {showMenu ? (
+              " Special Promo"
+            ) : (
+              <p className="hidenIcon">
+                <div> Special Promo</div>
+              </p>
+            )}
           </li>
           <li id="ManageUsers" onClick={section}>
             <i className="fas fa-user-friends" id="ManageUsers"></i>
-            {showMenu ? " Manage Users" : ""}
+
+            {showMenu ? (
+              "  Manage Users "
+            ) : (
+              <p className="hidenIcon">
+                <div>Manage Users</div>
+              </p>
+            )}
           </li>
           <li id="ManageOrders" onClick={section}>
             <i class="fas fa-truck-loading" id="ManageOrders"></i>
-            {showMenu ? " Manage Orders" : ""}
+            {showMenu ? (
+              " Manage Orders "
+            ) : (
+              <p className="hidenIcon">
+                <div> Manage Orders</div>
+              </p>
+            )}
           </li>
         </ul>
       </div>

@@ -10,10 +10,20 @@ import {
 
 export default function ManageOrders() {
   const [orders, setOrders] = useState([]);
-
+  const [orderStatusFilter, setOrderStatusFilter] = useState("");
   const getOrders = async () => {
     try {
       const res = await axios.get(`http://localhost:5000/orders`);
+      setOrders(res.data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  const filterOrders = async () => {
+    try {
+      const res = await axios.get(
+        `http://localhost:5000/orders?orderStatus=${orderStatusFilter}`
+      );
       setOrders(res.data);
     } catch (error) {
       console.error(error);
@@ -41,6 +51,27 @@ export default function ManageOrders() {
   return (
     <div>
       <h1 className="text-center"> Orders</h1>
+
+      <div className="justify-content-end  align-items-center">
+        <label htmlFor="orderStatusFilter" className="form-label">
+          Order Status:
+        </label>
+        <select
+          className="form-select"
+          id="orderStatusFilter"
+          value={orderStatusFilter}
+          onChange={(e) => setOrderStatusFilter(e.target.value)}
+        >
+          <option value="">All</option>
+          <option value="accepted">Accepted</option>
+          <option value="declined">Declined</option>
+          <option value="attend">Pending</option>
+        </select>
+        <button className="btn btn-primary m-3" onClick={filterOrders}>
+          filter
+        </button>
+        <hr></hr>
+      </div>
 
       {orders.length === 0 && (
         <p style={{ textAlign: "center" }}>No orders yet</p>

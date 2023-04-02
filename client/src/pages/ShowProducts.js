@@ -10,10 +10,10 @@ import { useDispatch } from "react-redux";
 export default function ShowProducts() {
   const dispatch = useDispatch();
 
-  const emptyCart = () => {
+  /*   const emptyCart = () => {
     dispatch({ type: "EMPTY_CART" });
     alert("cart is empty now ");
-  };
+  }; */
   const [productsData, setproductsData] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [filter, setFilter] = useState(false);

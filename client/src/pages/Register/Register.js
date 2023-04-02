@@ -5,7 +5,7 @@ import {
   signOut,
 } from "firebase/auth";
 import { auth } from "../../firebase-config";
-import { Link, redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 import axios from "axios";
 
 function Register() {

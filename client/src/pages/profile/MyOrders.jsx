@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import axios from "axios";
-import { MDBBtn } from "mdb-react-ui-kit";
 import {
   MDBCard,
   MDBCardBody,
@@ -120,8 +119,13 @@ export default function Orders() {
                         {order.orderDetails.map((orderDetail) => (
                           /*  console.log(orderDetail.productName), */
                           <tr key={orderDetail._id}>
-                            <td>{orderDetail._id}</td>
-                            <td>{orderDetail.quantity}</td>
+                            <td>
+                              {/* {orderDetail._id} */}
+
+                              <img src={orderDetail.productImage} width={60} />
+                              <p>{orderDetail.productName.slice(0, 20)}</p>
+                            </td>
+                            <td>{orderDetail.quantity} piéce</td>
                             <td>{orderDetail.productPrice} dt</td>
                           </tr>
                         ))}

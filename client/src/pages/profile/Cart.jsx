@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import axios from "axios";
@@ -45,10 +45,10 @@ export default function Cart() {
     return total.toFixed(2);
   };
   const checkOut = () => {
-    if (isLoggedIn == false) {
+    if (isLoggedIn === false) {
       alert("You must be logged in");
       return;
-    } else if (isLoggedIn == true) {
+    } else if (isLoggedIn === true) {
       alert("ordered successfully");
       setShowcheckout(true);
     }

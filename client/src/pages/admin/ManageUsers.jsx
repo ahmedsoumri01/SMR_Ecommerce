@@ -66,7 +66,7 @@ export default function ManageUsers() {
                   className="btn btn-danger m-1"
                   value={User._id}
                   onClick={deleteUser}
-                  disabled={User.typeOfUser == "admin" ? "true" : null}
+                  disabled={User.typeOfUser === "admin" ? "true" : null}
                 >
                   Delete
                 </button>

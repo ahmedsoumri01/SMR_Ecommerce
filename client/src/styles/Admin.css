@@ -7,6 +7,18 @@
     gap: 10px;
 
 }
+
+
+
+/* 
+.igo{position: absolute;
+    bottom: 13px;
+    left: 30px;
+    background: #4f4f4f;
+    color: white;
+    padding: 5px 20px;
+    font-size: 15px;
+    border-radius: 50px;} */
 .adminSection{
     background-color: #f1f1f1;
     padding: 10px;
@@ -29,9 +41,31 @@
 .adminSection li:hover{
     color: rgb(15, 102, 225);
 }
-/* .adminSection li i{
-    margin-right: 10px;
-} */
+.hidenIcon{
+    display: none;
+}
+.adminSection li:hover .hidenIcon{
+    display:block;
+ position: relative;
+}
+.adminSection li:hover .hidenIcon div{
+    position: absolute;
+    width: 150px;
+    bottom: 13px;
+    left: 35px;
+    background: #4f4f4fad;
+    color: white;
+    font-weight: bolder;
+    padding: 5px 5px;
+    font-size: 0.75rem;
+   border-top-left-radius: 50px;
+   border-bottom-right-radius: 50px;
+   box-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+}
+
+
+
+
 .adminSectionDetails{
     width: 100%;
     background-color: #ffffff;
